@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import userReducer from './reducers/userReducer';
+import { BrowserRouter } from 'react-router-dom';
 
 
 const store = createStore(
@@ -16,7 +17,9 @@ const store = createStore(
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+    <BrowserRouter>
     <App />
+    </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

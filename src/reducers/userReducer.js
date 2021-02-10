@@ -1,17 +1,26 @@
-
-
 let initialState = {
     user: []
 }
 
 const userReducer = (state = initialState, action) => {
     switch(action.type) {
-        case 'ADD_USER':
+        case 'registerUser':
             return {
-                user: action.payload
+                username: action.payload,
+                email: action.payload,
+                password: action.payload,
+                completed: false,
+            }
+        case 'changeUser':
+            return {
+                username: action.payload,
+                email: action.payload,
+                password: action.payload,
             }
             default: return state;
     }
 }
+
+export const selectUser = (state) => state.user.user;
 
 export default userReducer;
