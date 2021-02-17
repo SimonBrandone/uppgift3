@@ -11,15 +11,13 @@ function Account() {
     
 
     const user = useSelector((state) => state)
-    const history = useHistory();
-    const log = history.location;
     const [read, setRead] = useState(true)
-    const [name, setName] = useState(log.name);
-    const [email, setEmail] = useState(log.email);
-    const [password, setPassword] = useState(log.password);
+    const [name, setName] = useState(user.user);
+    const [email, setEmail] = useState(user.email);
+    const [password, setPassword] = useState(user.password);
     const [button, setButton] = useState('Change info')
     const dispatch = useDispatch();
-    const [message, setMessage] = useState(log.name)
+    const [message, setMessage] = useState(name)
     
         function handleClick(e) {
             if (read === true){
