@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { registerUser } from '../actions/Actions'
 import { useHistory } from 'react-router-dom';
 
 
@@ -14,18 +13,10 @@ function Registration() {
 
     const dispatch = useDispatch();
 
-     const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        history.push({
-            pathname: '/account',
-            name: name,
-            email: email,
-            password: password,
-
-        })
-        dispatch(registerUser({name, email, password}));
-
-        
+        dispatch({ type: "REGISTER_USER", user: name, email: email, password: password});
+        history.push('/account')
         
     }
         return (
